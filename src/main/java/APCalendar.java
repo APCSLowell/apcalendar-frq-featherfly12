@@ -19,18 +19,14 @@ public class APCalendar
     }
     return count;
     /* to be implemented in part (a) */
-
   }
+
   
   /** Returns the value representing the day of the week for the first day of year,
    *  where 0 denotes Sunday, 1 denotes Monday, ..., and 6 denotes Saturday.
    */
   private static int firstDayOfYear(int year)
   {
-    int startDay = firstDayOfYear(year);
-    int nthDay = dayOfYear(month,day,year);
-    int returnDay = (startDay+nthDay-1)%7;
-    return returnDay;
     /* January 1, 1980 was a Tuesday */
       return (2 + 365*(year - 1980) + numberOfLeapYears(1980, year-1)) % 7;
   }
@@ -61,6 +57,10 @@ public class APCalendar
    */
   public static int dayOfWeek(int month, int day, int year)
   {
+        int startDay = firstDayOfYear(year);
+    int nthDay = dayOfYear(month,day,year);
+    int returnDay = (startDay+nthDay-1)%7;
+    return returnDay;
     /* to be implemented in part (b) */
   }
 }
